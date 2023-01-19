@@ -1,0 +1,74 @@
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "dzaki@gmail.com",
+  "password": "123456"
+}
+
+####
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTQ1MTkwLCJleHAiOjE2NzM5NDUyMTB9.QzJNoLR6F9glODqf9DcvRXJgE0Y_AQCjy4pTK5aAhmo
+
+
+###
+GET http://localhost:5000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTM5ODc5LCJleHAiOjE2NzM5Mzk4OTR9._6LtqLDiOfwg4CJyXgfiSy0Eq_Zs-wLiLFx0Frp-oYQ
+
+###
+POST http://localhost:5000/users
+Content-Type: application/json
+
+
+{
+  "name": "Fauzi",
+  "email": "fauzi@gmail.com",
+  "address": "jalan Mertasinga",
+  "phone": "08185746829",
+  "password": "12345678"
+}
+
+
+###
+GET http://localhost:5000/token
+
+
+###
+PATCH http://localhost:5000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTQwNzMxLCJleHAiOjE2NzM5NDA3NDZ9.g4zjBK1b-N9jIPELJS-pIkA8SLU_bjp_MuYOhxqw1oM
+Content-Type: application/json
+
+{
+  "name": "Dzaki",
+  "email": "dzaki@gmail.com",
+  "address": "jalan Mertasinga",
+  "phone": "0812331241"
+}
+
+###
+DELETE http://localhost:5000/users/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTQ1ODQ5LCJleHAiOjE2NzM5NDU4NjR9.pLeuJWLkLDtiiQW7fNWAQh9gZz9n5Ig8NFqnQeNi-Ok
+
+###
+DELETE  http://localhost:5000/logout
+
+###
+GET http://localhost:5000/rooms
+
+###
+GET http://localhost:5000/token
+
+###
+POST http://localhost:5000/rooms
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTUwNTIzLCJleHAiOjE2NzM5NTA1Mzh9.uGGjgCofcCMg4uAwMaQPxiRAB3TUWtzrohypdUBiFts
+Content-Type: application/json
+
+{
+  "room_name": "Sadewa",
+  "capacity": 200,
+  "address": "jalan Mertasinga",
+  "hotel_name": "Margonda",
+  "rental_price": 500000,
+  "address": "Bandung"
+}
