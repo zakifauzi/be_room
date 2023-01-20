@@ -2,9 +2,9 @@ import express from "express";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import "./config/env.js";
-import Rooms from "./models/RoomModels.js";
 import userrouter from "./routes/UserRouter.js";
 import routerRoom from "./routes/RoomRouter.js";
+import routerrent from "./routes/RentRouter.js";
 
 const app = express();
 
@@ -21,5 +21,6 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(userrouter);
 app.use(routerRoom);
+app.use(routerrent);
 
 app.listen(5000, () => console.log("server running port 5000"));

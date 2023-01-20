@@ -27,10 +27,32 @@ const Payments = db.define(
     transaction_status: {
       type: DataTypes.BOOLEAN,
     },
+    userID: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "users", // 'users' refers to table name
+        key: "id", // 'id' refers to column name in users table
+      },
+    },
+    rent_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "rents", // 'users' refers to table name
+        key: "id", // 'id' refers to column name in users table
+      },
+    },
   },
   {
     freezeTableName: true,
   }
 );
+
+db.sync({ alter: true })
+  .then(() => {
+    console.log("Payments table created successfully!");
+  })
+  .catch((error) => {
+    console.error("Unable to create table : ", error);
+  });
 
 export default Payments;

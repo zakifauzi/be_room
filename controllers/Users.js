@@ -1,14 +1,17 @@
 import Users from "../models/UserModel.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import { json } from "sequelize";
 
 export const getUsers = async (req, res) => {
   try {
     const users = await Users.findAll({
       attributes: ["id", "name", "email"],
     });
-    res.json(users);
-  } catch (error) {}
+    res.status(200).json(users, { msg: "berhasil mendapatkan data user" });
+  } catch (error) {
+    res.status(400).json({ msg: "Invalid Input" });
+  }
 };
 
 export const getUsersById = async (req, res) => {
@@ -19,9 +22,11 @@ export const getUsersById = async (req, res) => {
         id: req.params.id,
       },
     });
-    res.json(users);
+    res
+      .status(200)
+      .json(users, { msg: "berhasil mendapatkan data user by id" });
   } catch (error) {
-    console.log(error);
+    console.log(res.status(500).json({ msg: error.message }));
   }
 };
 
@@ -47,9 +52,9 @@ export const updateUser = async (req, res) => {
         },
       }
     );
-    res.status(200).json({ msg: "User Updated" });
+    res.status(200).json({ msg: "data user berhasil diupdated" });
   } catch (error) {
-    res.status(400).json({ msg: error.message });
+    res.status(400).json({ msg: "username can only contains alphabet" });
   }
 };
 
@@ -65,9 +70,9 @@ export const Register = async (req, res) => {
       phone: phone,
       password: hashpassword,
     });
-    res.status(201).json({ msg: `Register Berhasil` });
+    res.status(201).json({ msg: `Berhasil melakukan registrasi` });
   } catch (error) {
-    console.log(error);
+    res.status(400).json({ msg: "Email dan nomer hp tidak terdaftar" });
   }
 };
 
@@ -79,7 +84,7 @@ export const Login = async (req, res) => {
       },
     });
     const match = await bcrypt.compare(req.body.password, user[0].password);
-    if (!match) return res.status(400).json({ msg: "Wrong Password" });
+    if (!match) return res.status(400).json({ msg: "Password Salah" });
     const userId = user[0].id;
     const name = user[0].name;
     const email = user[0].email;
@@ -109,7 +114,7 @@ export const Login = async (req, res) => {
       httpOnly: true,
       maxAge: 24 * 60 * 60 * 1000,
     });
-    res.json({ accessToken });
+    res.status(200).json({ accessToken, msg: "Berhasil Log In" });
   } catch (error) {
     res.status(404).json({ msg: "Email tidak ditemukan" });
   }
@@ -128,7 +133,7 @@ export const deleteUser = async (req, res) => {
         id: user.id,
       },
     });
-    res.status(200).json({ msg: "User Deleted" });
+    res.status(200).json({ msg: "Berhasil Delete User" });
   } catch (error) {
     res.status(400).json({ msg: error.message });
   }
@@ -153,5 +158,5 @@ export const Logout = async (req, res) => {
     }
   );
   res.clearCookie("refreshToken");
-  return res.sendStatus(200);
+  return res.status(200), json({ msg: "Berhasil Log Out" });
 };

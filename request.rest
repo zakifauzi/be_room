@@ -1,22 +1,4 @@
 ###
-POST http://localhost:5000/login
-Content-Type: application/json
-
-{
-  "email": "dzaki@gmail.com",
-  "password": "123456"
-}
-
-####
-GET http://localhost:5000/users
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTQ1MTkwLCJleHAiOjE2NzM5NDUyMTB9.QzJNoLR6F9glODqf9DcvRXJgE0Y_AQCjy4pTK5aAhmo
-
-
-###
-GET http://localhost:5000/users/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTM5ODc5LCJleHAiOjE2NzM5Mzk4OTR9._6LtqLDiOfwg4CJyXgfiSy0Eq_Zs-wLiLFx0Frp-oYQ
-
-###
 POST http://localhost:5000/users
 Content-Type: application/json
 
@@ -29,14 +11,32 @@ Content-Type: application/json
   "password": "12345678"
 }
 
+###
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "fauzi@gmail.com",
+  "password": "12345678"
+}
+
+####
+GET http://localhost:5000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsIm5hbWUiOiJGYXV6aSIsImVtYWlsIjoiZmF1emlAZ21haWwuY29tIiwiaWF0IjoxNjc0MTk3MjkwLCJleHAiOjE2NzQxOTczMTB9.2hA6EY3q5SC1lvTYxZ_vn7ncxW2nzSGvt7ITT7ocYn0
+
+
+###
+GET http://localhost:5000/users/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsIm5hbWUiOiJGYXV6aSIsImVtYWlsIjoiZmF1emlAZ21haWwuY29tIiwiaWF0IjoxNjc0MTk3MzIyLCJleHAiOjE2NzQxOTczMzd9.uSIfZQcE8uRfe1eEtqHt7yCJUH5zQiIuWkGw8mXcQjw
+
 
 ###
 GET http://localhost:5000/token
 
 
 ###
-PATCH http://localhost:5000/users/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTQwNzMxLCJleHAiOjE2NzM5NDA3NDZ9.g4zjBK1b-N9jIPELJS-pIkA8SLU_bjp_MuYOhxqw1oM
+PATCH http://localhost:5000/users/6
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsIm5hbWUiOiJGYXV6aSIsImVtYWlsIjoiZmF1emlAZ21haWwuY29tIiwiaWF0IjoxNjc0MTk3MzYyLCJleHAiOjE2NzQxOTczNzd9.LFEBqs1MmhbvJH3DI94T08bgkOYWmOBQVxucF1Vf4t4
 Content-Type: application/json
 
 {
@@ -57,18 +57,60 @@ DELETE  http://localhost:5000/logout
 GET http://localhost:5000/rooms
 
 ###
+GET http://localhost:5000/rooms/3
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjc0MTk2NDQ0LCJleHAiOjE2NzQxOTY0NjR9.gaGNprrersHRQ944jjFPOCFMmD9Y88hTbO9vKosqFzc
+
+###
 GET http://localhost:5000/token
 
 ###
 POST http://localhost:5000/rooms
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjczOTUwNTIzLCJleHAiOjE2NzM5NTA1Mzh9.uGGjgCofcCMg4uAwMaQPxiRAB3TUWtzrohypdUBiFts
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjcsIm5hbWUiOiJGYXV6aSIsImVtYWlsIjoiZmF1emlAZ21haWwuY29tIiwiaWF0IjoxNjc0MTk3NjM2LCJleHAiOjE2NzQxOTc2NTF9.dN_qq54TTBtx_dptZPoUIvq1f5Mj7fEX3JW1RkRXSOk
 Content-Type: application/json
 
 {
-  "room_name": "Sadewa",
-  "capacity": 200,
-  "address": "jalan Mertasinga",
-  "hotel_name": "Margonda",
-  "rental_price": 500000,
-  "address": "Bandung"
+  "room_name": "Arjuna",
+  "capacity": 300,
+  "address": "jalan Progo",
+  "hotel_name": "Margahayu",
+  "rental_price": 570000,
+  "address": "Bandung",
+  "userID": 7
 }
+
+###
+PATCH http://localhost:5000/rooms/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjc0MTEwMjM5LCJleHAiOjE2NzQxOTY2Mzl9.N22QWW4ssh6LnyzP8iAOL6DZrFXr7zL8YSVBo653PN8
+Content-Type: application/json
+
+{
+  "room_name": "Nakula",
+  "capacity": 500,
+  "address": "jalan Progo",
+  "hotel_name": "Margahayu",
+  "rental_price": 600000,
+  "address": "Bandung",
+  "date_available": null
+}
+
+###
+GET http://localhost:5000/token
+
+###
+DELETE http://localhost:5000/rooms/4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjc0MTE4Mjg3LCJleHAiOjE2NzQyMDQ2ODd9.rV74IQFTv8VxKvRvZ-cRIDu5Ch2wPxcKyPHHDFC0z-E
+
+###
+POST http://localhost:5000/rents
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjQsIm5hbWUiOiJEemFraSIsImVtYWlsIjoiZHpha2lAZ21haWwuY29tIiwiaWF0IjoxNjc0MTIzNzc5LCJleHAiOjE2NzQyMTAxNzl9.8OCgK-L_cXxsTpnaSpAKDqz187x7cgEkiXgft0ifqQE
+Content-Type: application/json
+
+{
+  "room_id": 2,
+  "date_start": "2023-01-19",
+  "date_end": "2023-01-20",
+  "bank": "BNI" 
+}
+
+###
+GET http://localhost:5000/token
